@@ -1,0 +1,16 @@
+<section>
+	<div class="row">
+	{{#each items}}
+		<div class="large-6 columns">
+			<div class="row collapse prefix-radius">
+				<div class="small-3 columns">
+					<span class="prefix">{{description}}</span>
+				</div>
+				<div class="small-9 columns">
+					<input data-config-field="{{field}}" type="{{type}}" {{additionalAttributes}} placeholder="">
+				</div>
+			</div>
+		</div>
+	{{/each}}
+	</div>
+</section>

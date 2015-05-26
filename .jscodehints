@@ -1,0 +1,7 @@
+{
+	"excluded-directories": [
+		"./src/js/lib/",
+		"./node_modules/",
+		"./build/"
+	]
+}

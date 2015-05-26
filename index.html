@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>App 4</title>
+	<link rel="stylesheet" href="public/css/foundation.min.css" />
+	<link rel="stylesheet" href="public/css/style.css" />
+</head>
+
+<body>
+
+<!--INPUT AREA --> 
+<!--<div class="row">
+	<div class="large-12 columns">
+		<div class="panel">
+			<section>
+				<h3>Genetic algorithms Composer</h3>
+				<p>description</p>
+
+				<div class="row">
+					<div class="large-6 medium-6 columns">
+						<label>Abc notated melody:</label>
+						<textarea placeholder="Paste abc notated melody here" rows="5"></textarea>
+					</div>
+				</div>
+
+				<input type="button" class="small radius button" value="Analyze">
+			</section>
+		</div>
+	</div>
+</div>-->
+
+<div class="row">
+	<div class="large-12 columns">
+		<h3>Current</h3>
+		<div class="panel">
+			
+			<div id="current" class="clearfix" style="min-height: 167px;">
+				<div data-id="abc-content"></div>
+			</div>
+
+			<ul class="button-group radius">
+				<li><button class="small button success" data-id="play">Play</button></li>
+				<li><button class="small button success" data-id="stop">Stop</button></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="row" >
+	<div class="large-12 columns">
+		<h3>Individuals</h3>
+		<div class="panel" style="max-height: 250px; overflow: auto;">
+			<button class="small button success radius" data-id="generate">Generate</button>
+			<!-- <div data-id="config"></div> -->
+		</div>
+		
+		<div class="panel">
+			<table>
+				<thead>
+					<tr>
+						<td>№</td>
+						<td>fitness</td>
+					</tr>
+				</thead>
+				<tbody data-id="individuals">
+
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-12 columns">
+		<div class="panel">
+			<div id="scores"></div>
+		</div>
+	</div>
+</div>
+
+<script src="src/js/lib/abcjs/abcjs_basic_latest-min.js"></script>
+<script src="build/bundle.js"></script>
+</body>
+</html>
