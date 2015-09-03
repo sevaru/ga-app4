@@ -1,4 +1,4 @@
-function mutate( data, weights ) {
+function mutate( data, weights, options ) {
 	
 	for ( var i = 0, l = data.length; i < l; i++ ) {
 		
@@ -14,8 +14,8 @@ function mutate( data, weights ) {
 
 		var temp = data[i];
 
-		data[i] = data[i+1];
-		data[i+1] = temp;
+		data[i] = data[i + 1];
+		data[i + 1] = temp;
 		
 	}
 

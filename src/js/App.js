@@ -25,8 +25,7 @@ function init() {
 	_cacheEls();
 	Timer.end();
 	
-	
-	//Config.init($els["config"]);
+	Config.init($els["config"]);
 	applySubscriptions();
 	PubSub.publish("rebind");
 }
@@ -91,7 +90,7 @@ function rebind() {
 	});
 	
 	$els["generate"].off("click").on("click", function() {
-		generatePopulation(/*Config.collect()*/);
+		generatePopulation(Config.collect());
 	});
 	
 	callbackBindings.off('click').on('click', function(e) {

@@ -14,7 +14,7 @@
 	<div class="large-12 columns">
 		<div class="panel">
 			<section>
-				<h3>Genetic algorithms Composer</h3>
+				<h5>Genetic algorithms Composer</h5>
 				<p>description</p>
 
 				<div class="row">
@@ -30,31 +30,78 @@
 	</div>
 </div>-->
 
+<div class="row" data-id="config">
+	<div class="large-12 medium-12 columns">
+		<div class="panel">
+			<div class="row">
+				<div class="large-4 medium-4 columns">
+					<label>
+						Max Iterations			
+						<input type="text" data-config-field="maxIterations" value="500">
+					</label>
+				</div>
+				<div class="large-4 medium-4 columns">
+					<label>
+						Death Limit	(Threshold for selection)	
+						<input type="number" min="0" max="1" data-config-field="deathLimit" value="0.75">
+					</label>
+				</div>
+				<div class="large-4 medium-4 columns">
+					<label>
+						Count	
+						<input type="number" min="0" max="500" data-config-field="count" value="20">
+					</label>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-4 medium-4 columns">
+					<label>
+						Threshold (When to stop algorithm 0-1)	
+						<input type="text" data-config-field="threshold" min="0" max="1" value="0.9">
+					</label>
+				</div>
+				<div class="large-4 medium-4 columns">
+					<label>
+						Mutation probability  (1 - always, 0 - never)	
+						<input type="text" data-config-field="mutationProbability" min="0" max="1" value="0.2">
+					</label>
+				</div>
+				<div class="large-4 medium-4 columns">
+					<!-- any other params? -->
+				</div>
+			</div>
+			<ul class="button-group radius">
+				<li>
+					<button class="small button success radius" data-id="generate">Generate</button>
+				</li>
+				<li>
+					<button class="small button success" data-id="play">Play</button>
+				</li>
+				<li>
+					<button class="small button success" data-id="stop">Stop</button>
+				</li>
+			</ul>
+		</div><!-- /.panel -->
+	</div>
+</div>
+
 <div class="row">
 	<div class="large-12 columns">
-		<h3>Current</h3>
+		<h5>Current</h5>
 		<div class="panel">
 			
 			<div id="current" class="clearfix" style="min-height: 167px;">
 				<div data-id="abc-content"></div>
 			</div>
 
-			<ul class="button-group radius">
-				<li><button class="small button success" data-id="play">Play</button></li>
-				<li><button class="small button success" data-id="stop">Stop</button></li>
-			</ul>
+			
 		</div>
 	</div>
 </div>
 
-<div class="row" >
+<div class="row">
 	<div class="large-12 columns">
-		<h3>Individuals</h3>
-		<div class="panel" style="max-height: 250px; overflow: auto;">
-			<button class="small button success radius" data-id="generate">Generate</button>
-			<!-- <div data-id="config"></div> -->
-		</div>
-		
+		<h5>Individuals</h5>
 		<div class="panel">
 			<table>
 				<thead>
@@ -71,13 +118,13 @@
 	</div>
 </div>
 
-<div class="row">
+<!-- <div class="row">
 	<div class="large-12 columns">
 		<div class="panel">
 			<div id="scores"></div>
 		</div>
 	</div>
-</div>
+</div> -->
 
 <script src="src/js/lib/abcjs/abcjs_basic_latest-min.js"></script>
 <script src="build/bundle.js"></script>

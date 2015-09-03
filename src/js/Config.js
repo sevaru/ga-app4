@@ -30,6 +30,10 @@ var localConfig = {
 			"description": "Threshold for Algorithm",
 			"type": "number",
 			"additionalAttributes": "max=1 min=0"
+		},
+		{
+			"field": "mutationProbability",
+			"type": "number"
 		}
 	]
 };
@@ -79,12 +83,16 @@ function collect() {
 var Config = {
 	init: function( $el ) {
 		$host = $el;
-		$host.empty();
-		$host.append(generateHTML());
+		//$host.empty();
+		//$host.append(generateHTML());
 		PubSub.publish("Config/inited");
 	},
 	
-	collect: collect
+	collect: collect,
+
+	mutations: {
+		upAndDown: 0.7
+	}
 };
 
 

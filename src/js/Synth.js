@@ -15,7 +15,7 @@ var Synth = (function() {
         }
 
         // Set the type and frequency of the oscillator.
-        oscillator.type = oscillator.SQUARE;
+        oscillator.type = "square";
         oscillator.frequency.value = frequency;
 
         // Set volume of the oscillator.

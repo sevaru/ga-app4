@@ -2,7 +2,7 @@ var Synth = require("./Synth");
 
 var Player = (function(Synth) {
 
-    var INTERVAL = 500;
+    var INTERVAL = 200;
     var _cursor = 0;
     var _content = [];
     var _stopped = true;

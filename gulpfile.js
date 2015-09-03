@@ -28,7 +28,7 @@ gulp.task('browserify', function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch('./src/js/*.js', ['reload']);
+	gulp.watch('./src/js/**/*.js', ['reload']);
     gulp.watch('./src/templates/*.hbs', ['reload']);
 	gulp.watch('index.html', ['reload']);
 });

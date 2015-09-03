@@ -11,9 +11,9 @@ var Individual = function( referenceIndividualContent )  {
 	var _reference = referenceIndividualContent;
 	var _content = _reference.slice() || [];
 
-    function mutate() {
+    function mutate( options ) {
 		var mutateFunction = Utils.obj.randomElement(Mutations);
-		_content = mutateFunction(_content);
+		_content = mutateFunction(_content, options);
     }
     
 

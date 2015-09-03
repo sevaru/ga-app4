@@ -5,11 +5,12 @@ var $ = require("jquery");
 
 var GA = (function( IndividualFactory, Reporter, referenceIndividual ) {
 
-    var options = {
-        deathLimit: 0.3,
-        count: 20,
-		threshold: 0.8,
-        maxIterations: 100
+    var _options = {
+        deathLimit: 0.7,
+        count: 25,
+		threshold: 0.9, /* End processing when someone near good (best 1) */
+        maxIterations: 500,
+        mutationProbability: 0.2
     };
 
     var population = [];
@@ -20,7 +21,7 @@ var GA = (function( IndividualFactory, Reporter, referenceIndividual ) {
     //-----------------------------
     //  1. Initial Population
     //-----------------------------
-    function _createInitialPopulation() {
+    function _createInitialPopulation( options ) {
         population = [];
 
         for ( var i = 0; i < options.count; i++ ) {
@@ -33,16 +34,18 @@ var GA = (function( IndividualFactory, Reporter, referenceIndividual ) {
     //-----------------------------
     //  2. Mutate/Crossover
     //-----------------------------
-    function _crossover() {
+    function _crossover( options ) {
         population.forEach(function( item, index, array ) {
             var neightbour = (array.length === population.length)? array[0] : array[index + 1];
             item.crossover(neightbour);
         });
     }
 
-    function _mutate() {
+    function _mutate( options ) {
         population.forEach(function( item ) {
-            item.mutate();
+            if ( Math.random() < options.mutationProbability ) {
+                item.mutate(options);
+            }
         });
     }
 
@@ -51,7 +54,7 @@ var GA = (function( IndividualFactory, Reporter, referenceIndividual ) {
     //-----------------------------
     //  3. Selection
     //-----------------------------
-    function _selection() {
+    function _selection( options ) {
         bestGuys = population.filter(function( item ) {
 			var itemFitness = item.fitness();
 			return itemFitness > options.deathLimit;
@@ -63,7 +66,7 @@ var GA = (function( IndividualFactory, Reporter, referenceIndividual ) {
     //-----------------------------
     //  4. Create New Population
     //-----------------------------
-    function _createNewPopulation() {
+    function _createNewPopulation( options ) {
         var newPopulation = [];
 
         for ( var i = 0, l = (options.count - bestGuys.length); i < l; i++ ) {
@@ -78,29 +81,29 @@ var GA = (function( IndividualFactory, Reporter, referenceIndividual ) {
     //-----------------------------
     //  5. Finish!
     //-----------------------------
-    function _isDone() {
+    function _isDone( options ) {
         return population.some(function( item ) {
 			return !item.fitness() && item.fitness() > options.threshold;
         });
     }
 
     function run( preferences ) {
-		options = $.extend({}, options, preferences);
+		var options = $.extend({}, _options, preferences);
 		
         var i = 0;
 		
-        _createInitialPopulation();
+        _createInitialPopulation(options);
 
         do {
-            _mutate();
-            _crossover();
-            _selection();
-            _createNewPopulation();
+            _mutate(options);
+            _crossover(options);
+            _selection(options);
+            _createNewPopulation(options);
 			i++;
 			
 			console.log("iteration: " + i);
 			
-        } while ( !_isDone() && i < options.maxIterations );
+        } while ( !_isDone(options) && i < options.maxIterations );
 		
 		population.unshift(IndividualFactory.create(referenceIndividual));
 		
