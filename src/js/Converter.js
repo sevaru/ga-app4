@@ -61,8 +61,12 @@ function convert( source ) {
 			answer += createNote(previousNote, size);
 		}
 		
-		if ( i &&  i%8 === 0 ) {
+		if ( i && i % 8 === 0 ) {
 			answer += "|";
+		}
+
+		if ( i && i % 32 === 0 ) {
+			answer += "\n";
 		}
 	}
 	return answer;

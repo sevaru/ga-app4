@@ -1,7 +1,7 @@
 var Individual = require("./Individual");
 
 module.exports = {
-    create: function( params ) {
-        return new Individual(params);
+    create: function( params, param2 ) {
+        return new Individual(params, param2);
     }
 };

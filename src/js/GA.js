@@ -10,7 +10,8 @@ var GA = (function( IndividualFactory, Reporter, referenceIndividual ) {
         count: 25,
 		threshold: 0.9, /* End processing when someone near good (best 1) */
         maxIterations: 500,
-        mutationProbability: 0.2
+        mutationProbability: 0.2,
+        useRandomInitialIndividuals: true
     };
 
     var population = [];
@@ -25,7 +26,7 @@ var GA = (function( IndividualFactory, Reporter, referenceIndividual ) {
         population = [];
 
         for ( var i = 0; i < options.count; i++ ) {
-            population.push(IndividualFactory.create(referenceIndividual));    
+            population.push(IndividualFactory.create(referenceIndividual, options.useRandomInitialIndividuals));    
         }
     }
 

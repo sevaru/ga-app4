@@ -144,7 +144,7 @@ function renderScores( abcScores ) {
 	$el.empty();
 	console.log(abcScores);
 	ABCJS.renderAbc($el.get(0), abcScores, null, {
-		scale: 0.7
+		scale: 1
 	});
 }
 

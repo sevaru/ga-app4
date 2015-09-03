@@ -34,6 +34,10 @@ var localConfig = {
 		{
 			"field": "mutationProbability",
 			"type": "number"
+		},
+		{
+			"field": "useRandomInitialIndividuals",
+			"type": "boolean"
 		}
 	]
 };
